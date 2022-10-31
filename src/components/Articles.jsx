@@ -17,8 +17,8 @@ const Articles = () => {
     if (isLoading) return <h2 className= "loading">Loading...</h2>
     return (
       <>
+        <h2 className = "articlesTitle">Latest News</h2>
         <ol className="listItems">
-            <h2 className = "articlesTitle">Latest News</h2>
           {articles.map((article) => {
             return (
                <li key={article.article_id} className="eachArticle">
