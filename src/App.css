@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +41,54 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  background-color: lightskyblue;
+  padding: 50px;
+}
+
+.listItems {
+  display: grid;
+  flex-wrap: wrap;
+  text-align: center;
+  list-style: none;
+
+}
+.eachArticle {
+  margin-top: 40px;
+  margin-bottom: 70px;
+  color: purple;
+}
+
+.articleInfo {
+  margin: 7px;
+}
+
+.navBar {
+  margin-top: 15px;
+}
+
+.navTitle {
+  margin-top: 20px;
+}
+
+.articlesButton {
+  padding: 6px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.homeButton {
+  padding: 6px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.articlesTitle {
+  margin-top: 40px;
+}
+
+.loading {
+  margin-top: 40px;
 }
