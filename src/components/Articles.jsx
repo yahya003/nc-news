@@ -22,9 +22,10 @@ const Articles = () => {
           {articles.map((article) => {
             return (
                <li key={article.article_id} className="eachArticle">
-                 <h2> {(article.created_at).substring(0,10)}</h2>
+                 <h2 className="date"> {(article.created_at).substring(0,10)}</h2>
                  <h3 className="articleInfo">{article.title}</h3>
                  <h4>By {article.author}</h4>
+                 <h4 className="openArticle">Read More </h4>
                </li>
             );
           })}
