@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +41,76 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  background-color: lightskyblue;
+  padding: 50px;
+}
+
+.listItems {
+  list-style: none;
+  margin: 0 auto;
+}
+
+
+.eachArticle {
+  margin-top: 70px;
+  color: purple;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  background-size: cover;
+  width: 450px;
+  padding-bottom: 100px;
+  border-radius: 10px;
+  margin: 50px;
+  height: 200px;
+  box-shadow: 0 1px 7px rgba(0,0,0,.2);
+  min-width: none;
+
+}
+
+.articleInfo {
+  margin: 7px;
+}
+
+.navBar {
+  margin-top: 15px;
+}
+
+.navTitle {
+  margin-top: 20px;
+}
+
+.articlesButton {
+  padding: 6px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.homeButton {
+  padding: 6px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.articlesTitle {
+  margin-top: 40px;
+}
+
+.loading {
+  margin-top: 40px;
+}
+
+.openArticle {
+  margin-top: 50px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 3%;
+  left: 41%;
+}
+
+.date {
+  margin-bottom: 30px;
 }
