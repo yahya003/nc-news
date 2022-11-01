@@ -1,8 +1,10 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-
 const Login = () => {
+    return ( 
+    <>
+     <div className="background">
+     </div>
+    </>
+    )
    
 
 }

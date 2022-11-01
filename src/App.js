@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Articles from './components/Articles';
 import Navigation from './components/Navigation';
-
+import SingleArticle from './components/Single-Article';
 
 function App() {
   
@@ -18,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login/>}></Route>
           <Route path="/articles" element={<Articles/>}></Route>
+          <Route path="/articles/:article_id" element={<SingleArticle/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
