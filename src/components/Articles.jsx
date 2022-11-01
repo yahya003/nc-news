@@ -22,7 +22,6 @@ const Articles = () => {
         <h2 className = "articlesTitle">Latest News</h2>
         <ul className="listItems">
         {articles.map((article) => {
-          console.log(article.created_at.substring(0,10))
           return (
             <Link to={`/articles/${article.article_id}`}>
               <li key={article.article_id} className="eachArticle">

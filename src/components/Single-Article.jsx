@@ -17,6 +17,7 @@ const SingleArticle =() => {
     
     return (
     <>
+
     <ul className="singleArticle">
        <h2 className="singleArticleTitle">{article.title}</h2>
        <li className="author"> By {article.author}</li>
