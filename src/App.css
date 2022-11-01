@@ -173,12 +173,12 @@ h1 {
 
 .comments{
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 .votes {
   display: inline-block;
-  margin-left: 20px;
+  margin-left: 50px;
 }
 
 .singleDate {
@@ -189,4 +189,14 @@ h1 {
 
 .time {
   margin-bottom: 10px;
+}
+
+.arrowImg {
+  width: 20px;
+  
+}
+
+.arrow {
+  margin-left: 10px;
+  cursor: pointer;
 }
