@@ -19,7 +19,7 @@ const Articles = () => {
     
     return (
       <>
-        <h2 className = "articlesTitle">Latest News</h2>
+        <h2 className = "articlesTitle">All Articles</h2>
         
         <ul className="listItems">
           {articles.map((article) => {

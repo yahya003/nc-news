@@ -198,6 +198,7 @@ h1 {
 
 .arrowImg {
   width: 15px; 
+  cursor: pointer;
 }
 
 .arrow {
@@ -216,6 +217,10 @@ h1 {
 
 .commentButton {
   padding: 5px;
+  margin-bottom: 50px;
+  float: right;
+  margin-right: 75px;
+  margin-top: 30px;
 }
 
 .commentList {
@@ -238,4 +243,46 @@ h1 {
 
 .loadingMessage {
   margin-top: 70px;
+}
+
+.addComment {
+  padding: 5px;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.formTitle{
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+
+.formSubHeading {
+  margin-right: 5px;
+}
+
+#username {
+  margin-bottom: 20px;
+  white-space: normal;
+}
+
+#body {
+  width: 100%;
+  margin-top: 5px;
+  
+}
+
+.submitButton {
+  float: right;
+  padding: 3px;
+  margin-top: 4px;
+}
+
+.addCommentMessage {
+  margin-top: 170px;
+  text-align: center;
+}
+
+.dontRefresh {
+  margin-top: 10px;
+  text-align: center;
 }
