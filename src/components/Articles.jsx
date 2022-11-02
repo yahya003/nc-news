@@ -20,20 +20,22 @@ const Articles = () => {
     return (
       <>
         <h2 className = "articlesTitle">Latest News</h2>
+        
         <ul className="listItems">
-        {articles.map((article) => {
-          return (
-            <Link to={`/articles/${article.article_id}`}>
-              <li key={article.article_id} className="eachArticle">
-              <h2 className="date"> {(article.created_at).substring(0,10)}</h2>
-                 <h3 className="articleInfo">{article.title}</h3>
-                 <h4>By {article.author}</h4>
-                 <h4 className="openArticle" > Read More </h4>
+          {articles.map((article) => {
+            return (
+              <li className="eachArticle" key = {article.article_id}>
+                <Link to={`/articles/${article.article_id}`}>
+                <h2 className="date"> {(article.created_at).substring(0,10)}</h2>
+                <h3 className="articleInfo">{article.title}</h3>
+                <h4>By {article.author}</h4>
+                <h4 className="openArticle" > Read More </h4>
+                </Link>
               </li>
-            </Link>
-          );
-        })}
-      </ul>
+            );
+           })
+          }
+        </ul>
         
       </>
     )
