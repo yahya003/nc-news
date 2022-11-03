@@ -10,7 +10,6 @@ export const fetchArticles = (sort, order) => {
     if (sort === undefined) {sort="created_at"}
     if (order=== undefined) {order="DESC"}
     return myApi.get(`/api/articles?sort_by=${sort}&order=${order}`).then(({data : {article}}) => {
-        console.log(article)
         return article
     });
 };

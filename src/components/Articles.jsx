@@ -64,9 +64,12 @@ const Articles = () => {
             return (
               <li className="eachArticle" key = {article.article_id}>
                 <Link to={`/articles/${article.article_id}`}>
-                <h2 className="date"> {(article.created_at).substring(0,10)}</h2>
+                <h2 className="date"> {article.created_at.substring(10,8)}-{article.created_at.substring(7,5)}-{article.created_at.substring(4,0)}</h2>
                 <h3 className="articleInfo">{article.title}</h3>
                 <h4>By {article.author}</h4>
+                <p className="articleOverviewID">Article ID - {article.article_id}  </p>
+                <p className="articleOverviewVotes">Votes:  {article.votes}  </p> 
+                <p className="articleOverviewComments">Comments - {article.comment_count}</p>
                 <h4 className="openArticle" > Read More </h4>
                 </Link>
               </li>

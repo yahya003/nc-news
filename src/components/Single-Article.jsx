@@ -29,7 +29,7 @@ const SingleArticle =() => {
         <div className="singleArticle">
           <h2 className="singleArticleTitle">{article.title}</h2>
           <h4 className="author"> By {article.author}</h4>
-          <h4 className= "singleDate">Published - {article.created_at.substring(0,10)}   </h4>
+          <h4 className= "singleDate">Published - {article.created_at.substring(10,8)}-{article.created_at.substring(7,5)}-{article.created_at.substring(4,0)}   </h4>
           <p className="body">{article.body} </p>
           <div className="votes-comments">
             <p className="comments"> Comments - {article.comment_count} </p>
