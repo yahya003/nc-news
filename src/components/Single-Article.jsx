@@ -6,7 +6,6 @@ import AddComment from "./AddComment";
 import Comment from "./Comments";
 
 const SingleArticle =() => {
-    
     const [article, setArticle] = useState([]);
     const { article_id } = useParams();
     const [vote, setVote] = useState("")

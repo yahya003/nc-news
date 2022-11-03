@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useEffect, useState} from "react";
 import {fetchCommentsByArticle, patchVotesByArticleID} from "../api";
 import AddComment from "./AddComment";
 
@@ -7,16 +7,20 @@ const Comments = ({article_id, comments, setComments, vote, setVote}) => {
     const [disableButton, setDisableButton] = useState(false)
     const [isLoading, setIsLoading] = useState(false);
     const [showComments, setShowComments] = useState(false)
+    const [isListed, setIsListed] = useState(false);
 
-    const handleClick = (event) => {
+    useEffect(() => {
           setIsLoading(true)
           fetchCommentsByArticle(article_id).then((response) => {
             setComments(response)
             setIsLoading(false)
-            setShowComments(true)
-          })
-    }
+      });
+    } 
+    , [isListed]);
 
+    const handleClick = () => {
+      setShowComments((prevState) => !prevState)
+    }
     
     if (isLoading) return <h2 className="loadingMessage">Loading...</h2>  
     else
@@ -40,14 +44,15 @@ const Comments = ({article_id, comments, setComments, vote, setVote}) => {
         </div>
 
          <div className="viewComments">
-            <button className="commentButton" onClick={handleClick}>
+            <button onClick={handleClick} className="commentButton">
               View all comments
             </button>
          </div>
 
          <ul className="commentList">
-           <AddComment article_id={article_id} className="addComment"/>
+           <AddComment article_id={article_id} className="addComment" setIsListed={setIsListed}/>
            {comments.map((eachComment) => {
+            if (showComments) {
              return (
                <li className="styleList" key={eachComment.body}>
                  <p className="spaceFromButtons">{eachComment.author} - {eachComment.body}</p>
@@ -55,7 +60,8 @@ const Comments = ({article_id, comments, setComments, vote, setVote}) => {
                  <p className="commentDate">{eachComment.created_at.substring(11,16)}</p>
                  <p className="commentDate">Votes: {eachComment.votes} </p>
                </li>
-             )
+             )}
+             else {return <> </>;}
             })  
            }    
          </ul>         
