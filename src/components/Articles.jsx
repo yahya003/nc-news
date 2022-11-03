@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { fetchArticles } from "../api";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Articles = () => {
+const Articles = ({user, setUser}) => {
     const [articles, setArticles] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [form, setForm] = useState({})
-  
+    
+    const navigate = useNavigate()
     
       useEffect(() => {
       setIsLoading(true);
@@ -34,10 +36,13 @@ const Articles = () => {
       });
     }
     
-    if (isLoading) return <h2 className= "loading">Loading...</h2>
-    
+    if (user === null) {return navigate("/");}
+    else if (isLoading) return <h2 className= "loading">Loading...</h2>
+    else
     return (
       <>
+      <img className ="avatar" src={user.avatar} alt= {user.username + "'s avatar"} />
+     <h3 className="loggedIn">You are logged in as {user.username}</h3>
         <h2 className = "articlesTitle">All Articles</h2>
   
         <div className="filterArticles">
