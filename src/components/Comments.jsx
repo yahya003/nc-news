@@ -1,5 +1,6 @@
 import { useState} from "react";
 import {fetchCommentsByArticle, patchVotesByArticleID} from "../api";
+import AddComment from "./AddComment";
 
 const Comments = ({article_id, comments, setComments, vote, setVote}) => {
 
@@ -45,18 +46,19 @@ const Comments = ({article_id, comments, setComments, vote, setVote}) => {
          </div>
 
          <ul className="commentList">
+           <AddComment article_id={article_id} className="addComment"/>
            {comments.map((eachComment) => {
              return (
                <li className="styleList" key={eachComment.body}>
                  <p className="spaceFromButtons">{eachComment.author} - {eachComment.body}</p>
                  <p className="commentDate">{eachComment.created_at.substring(0,10)}  </p>
                  <p className="commentDate">{eachComment.created_at.substring(11,16)}</p>
-                 <p className="commentDate">Votes: {eachComment.votes}</p>
+                 <p className="commentDate">Votes: {eachComment.votes} </p>
                </li>
              )
             })  
-           }        
-         </ul>
+           }    
+         </ul>         
       </> 
    )
 }

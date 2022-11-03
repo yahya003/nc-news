@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { fetchArticleByID} from "../api";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import AddComment from "./AddComment";
 import Comment from "./Comments";
 
 const SingleArticle =() => {
@@ -34,7 +35,7 @@ const SingleArticle =() => {
           <div className="votes-comments">
             <p className="comments"> Comments - {article.comment_count} </p>
             <p className="votes"> Votes:  {vote} </p>
-            <p> <Comment vote= {vote} setVote={setVote} article_id={article_id} comments={comments} setComments={setComments}/>  </p>
+            <Comment vote= {vote} setVote={setVote} article_id={article_id} comments={comments} setComments={setComments}/> 
           </div>
         </div>
        </>
