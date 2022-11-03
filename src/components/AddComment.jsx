@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { postCommentByArticleID } from "../api";
 
-const AddComment = ({article_id, isListed, setIsListed}) => {
+const AddComment = ({article_id, isListed, setIsListed, user, setUser}) => {
    
     const [clicked, setIsClicked] = useState(false)
     const [form, setForm] = useState({});
@@ -24,7 +24,7 @@ const AddComment = ({article_id, isListed, setIsListed}) => {
     const handleSubmit = (event) => {
       event.preventDefault()
       setIsListing(true);
-      postCommentByArticleID(article_id, form).then(() => {
+      postCommentByArticleID(article_id, form, user).then(() => {
           setIsListing(false);
           setIsListed(true);
       })

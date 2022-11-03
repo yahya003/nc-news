@@ -4,13 +4,16 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import AddComment from "./AddComment";
 import Comment from "./Comments";
+import { useNavigate } from "react-router-dom";
 
-const SingleArticle =() => {
+const SingleArticle =({user, setUser}) => {
     const [article, setArticle] = useState([]);
     const { article_id } = useParams();
     const [vote, setVote] = useState("")
     const [comments, setComments] = useState([])
     const [isLoading, setIsLoading] = useState(true);
+
+    const navigate = useNavigate()
 
     useEffect(() => {
       setIsLoading(true)
@@ -22,7 +25,8 @@ const SingleArticle =() => {
     } 
     , [article_id]);
 
-    if (isLoading) return <h2>Loading...</h2>
+    if (user === null) {return navigate("/");}
+    else if (isLoading) return <h2>Loading...</h2>
     else
     return (
        <>
@@ -34,7 +38,7 @@ const SingleArticle =() => {
           <div className="votes-comments">
             <p className="comments"> Comments - {article.comment_count} </p>
             <p className="votes"> Votes:  {vote} </p>
-            <Comment vote= {vote} setVote={setVote} article_id={article_id} comments={comments} setComments={setComments}/> 
+            <Comment vote= {vote} setVote={setVote} article_id={article_id} comments={comments} setComments={setComments} user={user} setUser={setUser}/> 
           </div>
         </div>
        </>

@@ -99,7 +99,7 @@ h1 {
 }
 
 .articlesTitle {
-  margin-top: 40px;
+  margin-top: 70px;
 }
 
 .loading {
@@ -127,6 +127,7 @@ h1 {
 .singleArticleTitle {
    padding-top: 35px;
    padding-bottom: 35px;
+   padding-right: auto;
    margin-bottom: 40px;
    background-color: cyan;
 }
@@ -173,11 +174,11 @@ h1 {
   padding-bottom: 50px;
   border-radius: 20px;
   width: 43%;
-  height: 4000px;
+  height: 7000px;
   box-shadow: 0 1px 7px rgba(0,0,0,.2);
   min-width: 430px;
   border: 1px solid black;  
-  margin-top: 30px;
+  margin-top: 100px;
   margin-bottom: 30px;
   max-width: 700px;
 }
@@ -362,9 +363,43 @@ h1 {
 
 .nav-button {
   position: relative;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
   margin-top: 25px;
   margin-bottom: 40px;
   min-width: 3.75vw;
+  
 }
+
+
+
+.avatar {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 10vw;
+  height: 10vw;
+}
+
+.userLogins {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.userLogins li {
+  margin: 40px;
+}
+
+.userLogins li p {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.loggedIn {
+  margin: 20px;
+}
+

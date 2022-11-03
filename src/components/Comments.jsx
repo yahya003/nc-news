@@ -2,7 +2,7 @@ import { useEffect, useState} from "react";
 import {fetchCommentsByArticle, patchVotesByArticleID} from "../api";
 import AddComment from "./AddComment";
 
-const Comments = ({article_id, comments, setComments, vote, setVote}) => {
+const Comments = ({article_id, comments, setComments, vote, setVote, user, setUser}) => {
 
     const [disableButton, setDisableButton] = useState(false)
     const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +51,7 @@ const Comments = ({article_id, comments, setComments, vote, setVote}) => {
          </div>
 
          <ul className="commentList">
-           <AddComment article_id={article_id} className="addComment" isListed={isListed} setIsListed={setIsListed}/>
+           <AddComment article_id={article_id} className="addComment" isListed={isListed} setIsListed={setIsListed} user={user} setUser={setUser}/>
            {comments.map((eachComment) => {
             if (showComments) {
              return (
