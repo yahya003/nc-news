@@ -6,7 +6,7 @@
 
 .App {
   text-align: center;
-  
+
 }
 
 .App-logo {
@@ -45,7 +45,7 @@
 }
 
 h1 {
-  background-color: lightskyblue;
+  background-color: skyblue;
   padding: 50px;
   
 }
@@ -63,12 +63,13 @@ h1 {
   vertical-align: top;
   position: relative;
   background-size: cover;
+  background-color: gold;
   width: 450px;
   padding-bottom: 100px;
   border-radius: 10px;
   margin: 50px ;
   margin-left: 17px;
-  height: 200px;
+  height: 250px;
   box-shadow: 0 1px 7px rgba(0,0,0,.2);
 
 }
@@ -237,7 +238,8 @@ h1 {
 
 .commentDate {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   margin-right: 40px;
 }
 
@@ -316,5 +318,53 @@ h1 {
 .filterSortButton {
   padding: 4px;
   margin-right: 50px;
-  width: 100px;
+  width: 127px;
+}
+
+.commentsTitle{
+  margin-top: 100px;
+}
+
+.articleIDHeading {
+  text-decoration: none;
+}
+
+.articleOverviewID {
+  display: inline-block;
+  position: absolute;
+  left: 10%;
+  bottom: 30%;
+}
+
+.articleOverviewComments {
+  display: inline-block;
+  position: absolute;
+  left: 38%;
+  bottom: 30%;
+}
+
+.articleOverviewVotes {
+  display: inline-block;
+  position: absolute;
+  left: 70%;
+  bottom: 30%;
+}
+
+.loginTitle {
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.nav-button {
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  min-width: 3.75vw;
 }

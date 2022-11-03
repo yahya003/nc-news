@@ -18,10 +18,11 @@ const Comments = ({article_id, comments, setComments, vote, setVote}) => {
     } 
     , [isListed]);
 
+    
     const handleClick = () => {
       setShowComments((prevState) => !prevState)
     }
-    
+
     if (isLoading) return <h2 className="loadingMessage">Loading...</h2>  
     else
     return (
@@ -50,18 +51,19 @@ const Comments = ({article_id, comments, setComments, vote, setVote}) => {
          </div>
 
          <ul className="commentList">
-           <AddComment article_id={article_id} className="addComment" setIsListed={setIsListed}/>
+           <AddComment article_id={article_id} className="addComment" isListed={isListed} setIsListed={setIsListed}/>
            {comments.map((eachComment) => {
             if (showComments) {
              return (
                <li className="styleList" key={eachComment.body}>
                  <p className="spaceFromButtons">{eachComment.author} - {eachComment.body}</p>
-                 <p className="commentDate">{eachComment.created_at.substring(0,10)}  </p>
                  <p className="commentDate">{eachComment.created_at.substring(11,16)}</p>
+                 <p className="commentDate">{eachComment.created_at.substring(10,8)}-{eachComment.created_at.substring(7,5)}-{eachComment.created_at.substring(4,0)} </p>
                  <p className="commentDate">Votes: {eachComment.votes} </p>
                </li>
-             )}
-             else {return <> </>;}
+             )
+            }
+            else {return;}
             })  
            }    
          </ul>         
