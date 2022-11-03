@@ -6,9 +6,12 @@ const myApi = axios.create({
   });
 
 
-export const fetchArticles = () => {
-    return myApi.get("/api/articles").then(({data : article}) => {
-        return article.article;
+export const fetchArticles = (sort, order) => {
+    if (sort === undefined) {sort="created_at"}
+    if (order=== undefined) {order="DESC"}
+    return myApi.get(`/api/articles?sort_by=${sort}&order=${order}`).then(({data : {article}}) => {
+        console.log(article)
+        return article
     });
 };
 
@@ -29,7 +32,5 @@ export const patchVotesByArticleID = (article_id, inc_votes) => {
 }
 
 export const postCommentByArticleID = (article_id, comment) => {
-    console.log(article_id)
-    console.log(comment)
     return myApi.post(`/api/articles/${article_id}/comments`, comment)
 }

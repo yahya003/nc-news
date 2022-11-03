@@ -286,3 +286,35 @@ h1 {
   margin-top: 10px;
   text-align: center;
 }
+
+.sortBy {
+  margin-top: 40px;
+  padding: 3px;
+  margin-right: 10px;
+}
+
+.orderBy {
+  padding: 3.6px;
+  margin-right: 10px ;
+  margin-left: 70px;
+}
+
+.filterArticles {
+  margin-top: 40px;
+}
+
+.filterOrderButton {
+  padding: 4px;
+  width: 100px;
+}
+
+.filterArticlesButton{
+  margin-top: 20px;
+  padding: 4px;
+}
+
+.filterSortButton {
+  padding: 4px;
+  margin-right: 50px;
+  width: 100px;
+}

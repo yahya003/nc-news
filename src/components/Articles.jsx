@@ -5,22 +5,60 @@ import { Link } from "react-router-dom";
 const Articles = () => {
     const [articles, setArticles] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-
-
-    useEffect(() => {
+    const [form, setForm] = useState({})
+  
+    
+      useEffect(() => {
       setIsLoading(true);
       fetchArticles().then((response) => { 
         setArticles(response);
          setIsLoading(false);
       });
     }, []);
+
+   
+    const handleChange = (event) => {
+      setForm((currentForm) => {
+          const information = { ...currentForm, [event.target.id]: event.target.value }
+          return information
+      })
+    }
+
+    const handleSubmit = (event) => {
+      event.preventDefault()
+      setIsLoading(true);
+      fetchArticles(form.sort_by, form.order).then((response) => { 
+        setArticles(response);
+         setIsLoading(false);
+         
+      });
+    }
     
     if (isLoading) return <h2 className= "loading">Loading...</h2>
     
     return (
       <>
         <h2 className = "articlesTitle">All Articles</h2>
-        
+  
+        <div className="filterArticles">
+            <form action="">
+         <label htmlFor="sort_by" className="sortBy">Sort By:</label>
+         <select id="sort_by" className="filterSortButton" onChange={handleChange}  >
+           <option  value="created_at">Date</option>
+           <option  value="article_id">Article ID</option>
+           <option  value="votes">Votes</option>
+           <option  value="comment_count">Comment Count</option>
+         </select>
+
+         <label htmlFor="order"  className="orderBy">Order: </label>
+         <select id="order" className="filterOrderButton"  onChange={handleChange}>
+           <option value="DESC">Descending</option>
+           <option value="ASC">Ascending</option>
+         </select>
+         </form>
+         <button className="filterArticlesButton" onClick= {handleSubmit} value="Submit">Submit</button>
+        </div> 
+
         <ul className="listItems">
           {articles.map((article) => {
             return (
