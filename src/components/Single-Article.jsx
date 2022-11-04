@@ -34,7 +34,7 @@ const SingleArticle =({user, setUser, error, setError}) => {
     else if (isLoading) return <h2>Loading...</h2>
     else
     return (
-       <>
+       <div className="background">
         <div className="singleArticle">
           <h2 className="singleArticleTitle">{article.title}</h2>
           <h4 className="author"> By {article.author}</h4>
@@ -46,7 +46,7 @@ const SingleArticle =({user, setUser, error, setError}) => {
             <Comment vote= {vote} setVote={setVote} article_id={article_id} comments={comments} setComments={setComments} user={user} setUser={setUser} error={error} setError={setError}/> 
           </div>
         </div>
-       </>
+       </div>
     )
 
 }

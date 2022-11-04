@@ -55,9 +55,10 @@ const Articles = ({user, setUser, error, setError}) => {
     else if (isLoading) return <h2 className= "loading">Loading...</h2>
     else
     return (
-      <>
+      <div className="singleArticlePage">
       <img className ="avatar" src={user.avatar} alt= {user.username + "'s avatar"} />
      <h3 className="loggedIn">You are logged in as {user.username}</h3>
+        
         <h2 className = "articlesTitle">All Articles</h2>
   
         <div className="filterArticles">
@@ -80,7 +81,7 @@ const Articles = ({user, setUser, error, setError}) => {
          </form>
          <button className="filterArticlesButton" onClick= {handleSubmit} value="Submit">Submit</button>
         </div> 
-
+        <div className="background">
         <ul className="listItems">
           {articles.map((article) => {
             return (
@@ -99,8 +100,8 @@ const Articles = ({user, setUser, error, setError}) => {
            })
           }
         </ul>
-        
-      </>
+        </div>
+      </div>
     )
 }
 
