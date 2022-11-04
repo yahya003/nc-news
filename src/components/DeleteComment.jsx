@@ -1,7 +1,8 @@
 import { deleteCommentByID } from "../api"
 import { useState } from "react";
+import ErrorPage from "./ErrorPage";
 
-const DeleteComment = ({user, isDeleted, setIsDeleted,eachComment}) => {
+const DeleteComment = ({user, isDeleted, setIsDeleted,eachComment, error, setError}) => {
     const [isDeleting, setIsDeleting] = useState(false);
     
     const handleClick = (event) => {
@@ -13,9 +14,14 @@ const DeleteComment = ({user, isDeleted, setIsDeleted,eachComment}) => {
         setIsDeleted(true)
         
       })
+      .catch(({response}) => {
+        setError({ response })
+      })
     }
+    
 
-    if (isDeleting) 
+    if (error) return <ErrorPage error={error}/>
+    else if (isDeleting) 
     return (
     <>
     <h2 className="addCommentMessage">Deleting your comment... </h2>

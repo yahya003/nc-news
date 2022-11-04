@@ -1,9 +1,10 @@
 import { Navigate } from "react-router-dom";
 
-const Home = ({user, setUser}) => {
-    
+const Home = ({user, setUser, setError}) => {
+  
     if (user === null) return <Navigate to="/"/>
     else
+   
     return (
     <div className="background">
       <h2> Home </h2>

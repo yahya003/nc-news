@@ -2,21 +2,26 @@ import { useEffect, useState} from "react";
 import {fetchCommentsByArticle, patchVotesByArticleID} from "../api";
 import AddComment from "./AddComment";
 import DeleteComment from "./DeleteComment";
+import ErrorPage from "./ErrorPage";
 
-const Comments = ({article_id, comments, setComments, vote, setVote, user, setUser}) => {
-
+const Comments = ({article_id, comments, setComments, vote, setVote, user, setUser, error, setError}) => {
     const [disableButton, setDisableButton] = useState(false)
     const [isLoading, setIsLoading] = useState(false);
     const [showComments, setShowComments] = useState(false)
     const [isListed, setIsListed] = useState(false);
     const [isDeleted, setIsDeleted] = useState(false)
 
+
+
     useEffect(() => {
           setIsLoading(true)
           fetchCommentsByArticle(article_id).then((response) => {
             setComments(response)
             setIsLoading(false)
-      });
+      })
+      .catch(({response}) => {
+        setError({ response })
+      })
     } 
     , [isListed, isDeleted]);
 
@@ -25,7 +30,8 @@ const Comments = ({article_id, comments, setComments, vote, setVote, user, setUs
       setShowComments((prevState) => !prevState)
     }
 
-    if (isLoading) return <h2 className="loadingMessage">Loading...</h2>  
+    if (error) return <ErrorPage error={error} setError={setError}/>
+    else if (isLoading) return <h2 className="loadingMessage">Loading...</h2>
     else
     return (
       <>
@@ -53,7 +59,7 @@ const Comments = ({article_id, comments, setComments, vote, setVote, user, setUs
          </div>
 
          <ul className="commentList">
-           <AddComment article_id={article_id} className="addComment" isListed={isListed} setIsListed={setIsListed} user={user} setUser={setUser}/>
+           <AddComment article_id={article_id} className="addComment" isListed={isListed} setIsListed={setIsListed} user={user} setUser={setUser} error={error} setError={setError}/>
            {comments.map((eachComment) => {
             if (showComments) {
              return (
@@ -62,7 +68,7 @@ const Comments = ({article_id, comments, setComments, vote, setVote, user, setUs
                  <p className="commentDate">{eachComment.created_at.substring(11,16)}</p>
                  <p className="commentDate">{eachComment.created_at.substring(10,8)}-{eachComment.created_at.substring(7,5)}-{eachComment.created_at.substring(4,0)} </p>
                  <p className="commentDate">Votes: {eachComment.votes} </p>
-                 <DeleteComment eachComment={eachComment} user={user} isDeleted={isDeleted} setIsDeleted={setIsDeleted}/>
+                 <DeleteComment eachComment={eachComment} user={user} isDeleted={isDeleted} setIsDeleted={setIsDeleted} error={error} setError={setError}/>
                </li>
              )
             }
