@@ -45,7 +45,6 @@ const Articles = ({user, setUser, error, setError}) => {
     
 
     if (error)  {
-      console.log(error) 
       return <ErrorPage error={error}/>
     }
 
