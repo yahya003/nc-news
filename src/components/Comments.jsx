@@ -1,6 +1,7 @@
 import { useEffect, useState} from "react";
 import {fetchCommentsByArticle, patchVotesByArticleID} from "../api";
 import AddComment from "./AddComment";
+import DeleteComment from "./DeleteComment";
 
 const Comments = ({article_id, comments, setComments, vote, setVote, user, setUser}) => {
 
@@ -8,6 +9,7 @@ const Comments = ({article_id, comments, setComments, vote, setVote, user, setUs
     const [isLoading, setIsLoading] = useState(false);
     const [showComments, setShowComments] = useState(false)
     const [isListed, setIsListed] = useState(false);
+    const [isDeleted, setIsDeleted] = useState(false)
 
     useEffect(() => {
           setIsLoading(true)
@@ -16,7 +18,7 @@ const Comments = ({article_id, comments, setComments, vote, setVote, user, setUs
             setIsLoading(false)
       });
     } 
-    , [isListed]);
+    , [isListed, isDeleted]);
 
     
     const handleClick = () => {
@@ -60,6 +62,7 @@ const Comments = ({article_id, comments, setComments, vote, setVote, user, setUs
                  <p className="commentDate">{eachComment.created_at.substring(11,16)}</p>
                  <p className="commentDate">{eachComment.created_at.substring(10,8)}-{eachComment.created_at.substring(7,5)}-{eachComment.created_at.substring(4,0)} </p>
                  <p className="commentDate">Votes: {eachComment.votes} </p>
+                 <DeleteComment eachComment={eachComment} user={user} isDeleted={isDeleted} setIsDeleted={setIsDeleted}/>
                </li>
              )
             }

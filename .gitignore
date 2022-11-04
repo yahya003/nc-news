@@ -22,5 +22,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-       <li className= "singleDate">Published - {article.created_at.substring(0,10)}</li>
-       <li className="time">{article.created_at.substring(11,16)}</li>

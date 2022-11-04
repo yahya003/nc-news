@@ -6,8 +6,7 @@
 
 .App {
   text-align: center;
-
-}
+  }
 
 .App-logo {
   height: 40vmin;
@@ -271,6 +270,7 @@ h1 {
 #body {
   width: 100%;
   margin-top: 5px;
+  padding: 10px;
   
 }
 
@@ -308,7 +308,7 @@ h1 {
 
 .filterOrderButton {
   padding: 4px;
-  width: 100px;
+  width: 125px;
 }
 
 .filterArticlesButton{
@@ -403,3 +403,6 @@ a {
   margin: 20px;
 }
 
+.deleteComment {
+  padding: 2px;
+}

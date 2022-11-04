@@ -49,6 +49,7 @@ const Articles = ({user, setUser}) => {
             <form action="">
          <label htmlFor="sort_by" className="sortBy">Sort By:</label>
          <select id="sort_by" className="filterSortButton" onChange={handleChange}  >
+          <option disabled selected value="created_at">Select a filter</option>
            <option  value="created_at">Date</option>
            <option  value="article_id">Article ID</option>
            <option  value="votes">Votes</option>
@@ -57,6 +58,7 @@ const Articles = ({user, setUser}) => {
 
          <label htmlFor="order"  className="orderBy">Order: </label>
          <select id="order" className="filterOrderButton"  onChange={handleChange}>
+           <option disabled selected value="DESC">Select Order</option>
            <option value="DESC">Descending</option>
            <option value="ASC">Ascending</option>
          </select>
@@ -69,13 +71,13 @@ const Articles = ({user, setUser}) => {
             return (
               <li className="eachArticle" key = {article.article_id}>
                 <Link to={`/articles/${article.article_id}`}>
-                <h2 className="date"> {article.created_at.substring(10,8)}-{article.created_at.substring(7,5)}-{article.created_at.substring(4,0)}</h2>
+                <h2 className="date">  {article.created_at.substring(10,8)}-{article.created_at.substring(7,5)}-{article.created_at.substring(4,0)}</h2>
                 <h3 className="articleInfo">{article.title}</h3>
                 <h4>By {article.author}</h4>
                 <p className="articleOverviewID">Article ID - {article.article_id}  </p>
                 <p className="articleOverviewVotes">Votes:  {article.votes}  </p> 
                 <p className="articleOverviewComments">Comments - {article.comment_count}</p>
-                <h4 className="openArticle" > Read More </h4>
+                <p className="openArticle" > Read More </p>
                 </Link>
               </li>
             );
