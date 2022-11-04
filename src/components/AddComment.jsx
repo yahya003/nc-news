@@ -23,6 +23,7 @@ const AddComment = ({article_id, isListed, setIsListed, user, setUser}) => {
     
     const handleSubmit = (event) => {
       event.preventDefault()
+      setIsListed(false)
       setIsListing(true);
       postCommentByArticleID(article_id, form, user).then(() => {
           setIsListing(false);
@@ -33,7 +34,7 @@ const AddComment = ({article_id, isListed, setIsListed, user, setUser}) => {
 
 
     if (clicked===false) return <button onClick={handleClick} className="addComment">Add a Comment</button>
-    else if (isListing) return (<><h2 className="addCommentMessage">Submitting your comment... </h2><h3 className="dontRefresh">Please do not refresh the browser</h3></>);
+    else if (isListing) return (<><h3 className="addCommentMessage">Submitting your comment... </h3><h3 className="dontRefresh">Please do not refresh the browser</h3></>);
     else 
     return (
         <>

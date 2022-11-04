@@ -14,15 +14,12 @@ const Login = ({ user, setUser }) => {
         <ul className="userLogins">
           {users.map((eachUser) => {
             return (
+             <li key={eachUser.username} onClick={() => {setUser(eachUser)}}>
               <Link to="/home">
-                <li
-                  key={eachUser.username} 
-                  onClick={() => {setUser(eachUser)}}
-                >
                   <img className ="avatar" src={eachUser.avatar} alt= {eachUser.username + "'s avatar"} />
                   <p>{eachUser.username}</p>
-                </li>
               </Link>
+                </li>
             );
           })}
         </ul>

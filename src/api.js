@@ -33,3 +33,7 @@ export const patchVotesByArticleID = (article_id, inc_votes) => {
 export const postCommentByArticleID = (article_id, comment, user) => {
     return myApi.post(`/api/articles/${article_id}/comments`, {username: user.username, body: comment.body})
 }
+
+export const deleteCommentByID = (commentID) => {
+    return myApi.delete(`/api/comments/${commentID}`)
+}
