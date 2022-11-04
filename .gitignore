@@ -34,3 +34,5 @@ yarn-error.log*
         </Link>
         
       </nav>
+# Local Netlify folder
+.netlify
