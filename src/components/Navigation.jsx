@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Navigation = ({user, setUser}) => {
   return (
-    <>
-      <h2 className = "navTitle">Navigation Bar</h2>
+    <div className="navBack">
+
       <nav className="navBar">
         
         <Link to = "/home">
@@ -28,7 +28,7 @@ const Navigation = ({user, setUser}) => {
           Log Out
         </button>
       </Link>
-    </>
+    </div>
   );
 };
 export default Navigation;
