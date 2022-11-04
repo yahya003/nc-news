@@ -22,3 +22,15 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+      <h2 className = "navTitle">Navigation Bar</h2>
+      <nav className="navBar">
+        
+        <Link to = "/home">
+          <button className="homeButton">Home</button>
+        </Link>
+
+        <Link to = "/articles">
+          <button className="articlesButton">Articles</button>
+        </Link>
+        
+      </nav>

@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { postCommentByArticleID } from "../api";
+import ErrorPage from "./ErrorPage";
 
-const AddComment = ({article_id, isListed, setIsListed, user, setUser}) => {
+const AddComment = ({article_id, isListed, setIsListed, user, setUser, error, setError}) => {
    
     const [clicked, setIsClicked] = useState(false)
     const [form, setForm] = useState({});
@@ -18,22 +19,25 @@ const AddComment = ({article_id, isListed, setIsListed, user, setUser}) => {
          setDisabled(false)
          return information;
         })
-      
+
     }
     
     const handleSubmit = (event) => {
       event.preventDefault()
+    
       setIsListed(false)
       setIsListing(true);
       postCommentByArticleID(article_id, form, user).then(() => {
           setIsListing(false);
           setIsListed(true);
       })
+      .catch(({response}) => {
+        setError({ response })
+      })
     }
 
-
-
-    if (clicked===false) return <button onClick={handleClick} className="addComment">Add a Comment</button>
+    if (error) return <ErrorPage error={error} setError={setError}/>
+    else if (clicked===false) return <button onClick={handleClick} className="addComment">Add a Comment</button>
     else if (isListing) return (<><h3 className="addCommentMessage">Submitting your comment... </h3><h3 className="dontRefresh">Please do not refresh the browser</h3></>);
     else 
     return (

@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { fetchArticles } from "../api";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
 
-const Articles = ({user, setUser}) => {
+const Articles = ({user, setUser, error, setError}) => {
     const [articles, setArticles] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [form, setForm] = useState({})
@@ -15,10 +16,14 @@ const Articles = ({user, setUser}) => {
       fetchArticles().then((response) => { 
         setArticles(response);
          setIsLoading(false);
-      });
+      })
+      .catch(({response}) => {
+        setError({ response })
+      })
     }, []);
 
    
+
     const handleChange = (event) => {
       setForm((currentForm) => {
           const information = { ...currentForm, [event.target.id]: event.target.value }
@@ -32,11 +37,21 @@ const Articles = ({user, setUser}) => {
       fetchArticles(form.sort_by, form.order).then((response) => { 
         setArticles(response);
          setIsLoading(false);
-         
-      });
+      })
+      .catch(({response}) => {
+        setError({ response })
+      })
     }
     
-    if (user === null) {return navigate("/");}
+
+    if (error)  {
+      return <ErrorPage error={error}/>
+    }
+
+    else if (user === null) {
+      return  navigate("/");
+    }
+
     else if (isLoading) return <h2 className= "loading">Loading...</h2>
     else
     return (
@@ -49,7 +64,7 @@ const Articles = ({user, setUser}) => {
             <form action="">
          <label htmlFor="sort_by" className="sortBy">Sort By:</label>
          <select id="sort_by" className="filterSortButton" onChange={handleChange}  >
-          <option disabled selected value="created_at">Select a filter</option>
+          <option disabled defaultValue="created_at">Select a filter</option>
            <option  value="created_at">Date</option>
            <option  value="article_id">Article ID</option>
            <option  value="votes">Votes</option>
@@ -58,7 +73,7 @@ const Articles = ({user, setUser}) => {
 
          <label htmlFor="order"  className="orderBy">Order: </label>
          <select id="order" className="filterOrderButton"  onChange={handleChange}>
-           <option disabled selected value="DESC">Select Order</option>
+           <option disabled defaultValue="DESC">Select Order</option>
            <option value="DESC">Descending</option>
            <option value="ASC">Ascending</option>
          </select>

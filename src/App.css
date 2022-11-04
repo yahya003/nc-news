@@ -43,7 +43,7 @@
   }
 }
 
-h1 {
+.mainHeader {
   background-color: skyblue;
   padding: 50px;
   
@@ -405,4 +405,13 @@ a {
 
 .deleteComment {
   padding: 2px;
+}
+
+.error{
+  margin: 30px;
+  font-weight: bold;
+}
+
+.errorMessage{
+  margin-bottom: 60px;
 }
