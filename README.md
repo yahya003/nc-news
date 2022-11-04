@@ -5,7 +5,7 @@ Link -
 
 ## Project Description
 
-Wesbite allows users to:
+Website allows users to:
  - Log in and Log out
  - View articles from my backend API (details below)
  - View more information about a single article by selecting it such as the comments
@@ -28,5 +28,5 @@ node v18.11.0
 
 1) Fork and clone repo - git clone https://github.com/yahya003/nc-news
 2) cd into nc_news
-3) npm i to install dependencies, npm i axios
+3) npm i to install dependencies
 4) npm start
