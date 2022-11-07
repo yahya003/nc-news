@@ -1,6 +1,6 @@
 ## Deployed Version Link 
 
-Link -
+Link - https://news-flash-hub.netlify.app/
 
 
 ## Project Description
