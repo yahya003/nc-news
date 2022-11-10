@@ -72,7 +72,7 @@ const Comments = ({article_id, comments, setComments, vote, setVote, user, setUs
                </li>
              )
             }
-            else {return;}
+            else return "";
             })  
            }    
          </ul>         

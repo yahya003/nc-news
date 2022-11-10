@@ -1,34 +1,26 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navigation = ({user, setUser}) => {
   return (
-    <div className="navBack">
-
       <nav className="navBar">
         
-        <Link to = "/home">
-          <button className="homeButton">Home</button>
-        </Link>
+        <NavLink to = "/home" className={({ isActive }) => (isActive ? "link-active" : "link")}>
+          Home
+        </NavLink >
 
-        <Link to = "/articles">
-          <button className="articlesButton">Articles</button>
-        </Link>
-        
-      </nav>
-
-      <Link to="/">
-        <button
-          className="nav-button"
+        <NavLink to = "/articles" className={({ isActive }) => (isActive ? "link-active" : "link")}>
+          Articles
+        </NavLink>
+              
+        <NavLink  to="/" 
           id="log-out"
-          type="button"
+
           onClick={() => {
             setUser(null);
-          }}
-        >
+          }}>
           Log Out
-        </button>
-      </Link>
-    </div>
+        </NavLink >
+      </nav>
   );
 };
 export default Navigation;
