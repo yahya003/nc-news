@@ -10,7 +10,7 @@ const Home = ({user, setUser, setError}) => {
       <section>
 
       <h2 className="homePage"> Home </h2>
-      <img className ="avatar" src={user.avatar} alt= {user.username + "'s avatar"} />
+      <img className ="posavatar" src={user.avatar} alt= {user.username + "'s avatar"} />
       <h3 className="loggedIn">You are logged in as {user.username}</h3>
     
     

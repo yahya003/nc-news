@@ -16,7 +16,7 @@ const Login = ({ user, setUser }) => {
             return (
              <li key={eachUser.username} onClick={() => {setUser(eachUser)}}>
               <Link to="/home">
-                  <img className ="avatar" src={eachUser.avatar} alt= {eachUser.username + "'s avatar"} />
+                  <img className ="posavatar" src={eachUser.avatar} alt= {eachUser.username + "'s avatar"} />
                   <p className="user">{eachUser.username}</p>
               </Link>
                 </li>

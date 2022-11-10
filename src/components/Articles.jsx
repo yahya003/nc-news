@@ -56,7 +56,7 @@ const Articles = ({user, setUser, error, setError}) => {
     else
     return (
       <div className="singleArticlePage">
-      <img className ="avatar" src={user.avatar} alt= {user.username + "'s avatar"} />
+      <img className ="posavatar" src={user.avatar} alt= {user.username + "'s avatar"} />
      <h3 className="loggedIn">You are logged in as {user.username}</h3>
         
         <h2 className = "articlesTitle">All Articles</h2>
