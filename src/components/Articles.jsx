@@ -3,6 +3,7 @@ import { fetchArticles } from "../api";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
+import Logout from "./Logout";
 
 const Articles = ({user, setUser, error, setError}) => {
     const [articles, setArticles] = useState(null);
@@ -57,8 +58,8 @@ const Articles = ({user, setUser, error, setError}) => {
     return (
       <div className="singleArticlePage">
       <img className ="posavatar" src={user.avatar} alt= {user.username + "'s avatar"} />
-     <h3 className="loggedIn">You are logged in as {user.username}</h3>
-        
+     <h3 className="loggedIn">Logged in as {user.username}</h3>
+     <Logout/>
         <h2 className = "articlesTitle">All Articles</h2>
   
         <div className="filterArticles">

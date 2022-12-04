@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const myApi = axios.create({
-    baseURL: "https://news-flash-hub.herokuapp.com",
+    baseURL: "https://news-flash.cyclic.app/",
   });
 
 

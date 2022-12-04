@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { fetchArticleByID} from "../api";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useState } from "react";
 import Comment from "./Comments";
 import { useNavigate } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
+import Logout from "./Logout";
 
 const SingleArticle =({user, setUser, error, setError}) => {
     const [article, setArticle] = useState([]);
@@ -34,6 +35,8 @@ const SingleArticle =({user, setUser, error, setError}) => {
     else if (isLoading) return <h2>Loading...</h2>
     else
     return (
+      <>
+       <NavLink to = "/articles"> <button className="button">Back to articles</button></NavLink><Logout/>
        <div className="background">
         <div className="singleArticle">
           <h2 className="singleArticleTitle">{article.title}</h2>
@@ -47,6 +50,7 @@ const SingleArticle =({user, setUser, error, setError}) => {
           </div>
         </div>
        </div>
+       </>
     )
 
 }

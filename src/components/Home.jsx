@@ -5,10 +5,9 @@ const Home = ({user, setUser, setError}) => {
   
     if (user === null) return <Navigate to="/"/>
     else
-    
     return (
       <section>
-
+      
       <h2 className="homePage"> Home </h2>
       <img className ="posavatar" src={user.avatar} alt= {user.username + "'s avatar"} />
       <h3 className="loggedIn">You are logged in as {user.username}</h3>
