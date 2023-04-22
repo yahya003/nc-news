@@ -58,7 +58,7 @@ const Articles = ({user, setUser, error, setError}) => {
     return (
       <div className="singleArticlePage">
         <div>
-        <h3 className="log">Logged in as {user.username}</h3>
+        <h3 className="log">{user.username}</h3>
         <h2 className = "topLine">All Articles</h2>
         <Logout/>
         </div>
