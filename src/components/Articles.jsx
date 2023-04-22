@@ -57,10 +57,11 @@ const Articles = ({user, setUser, error, setError}) => {
     else
     return (
       <div className="singleArticlePage">
-      <img className ="posavatar" src={user.avatar} alt= {user.username + "'s avatar"} />
-     <h3 className="loggedIn">Logged in as {user.username}</h3>
-     <Logout/>
-        <h2 className = "articlesTitle">All Articles</h2>
+        <div>
+        <h3 className="log">Logged in as {user.username}</h3>
+        <h2 className = "topLine">All Articles</h2>
+        <Logout/>
+        </div>
   
         <div className="filterArticles">
             <form action="">
@@ -79,22 +80,22 @@ const Articles = ({user, setUser, error, setError}) => {
            <option value="DESC">Descending</option>
            <option value="ASC">Ascending</option>
          </select>
-         </form>
          <button className="filterArticlesButton" onClick= {handleSubmit} value="Submit">Submit</button>
+         </form>
         </div> 
         <div className="background">
         <ul className="listItems">
           {articles.map((article) => {
             return (
               <li className="eachArticle" key = {article.article_id}>
+                <h6 className="id">{article.article_id}  </h6>
                 <Link to={`/articles/${article.article_id}`}>
                 <h2 className="date">  {article.created_at.substring(10,8)}-{article.created_at.substring(7,5)}-{article.created_at.substring(4,0)}</h2>
                 <h3 className="articleInfo">{article.title}</h3>
                 <h4>By {article.author}</h4>
-                <p className="articleOverviewID">Article ID - {article.article_id}  </p>
-                <p className="articleOverviewVotes">Votes:  {article.votes}  </p> 
-                <p className="articleOverviewComments">Comments - {article.comment_count}</p>
-                <p className="openArticle" > Read More </p>
+                  <p className="articleOverviewVotes">⬆  {article.votes}  </p> 
+                  <p className="articleOverviewComments">💬 {article.comment_count}</p>
+                <p className="openArticle" > Read More {">>>"} </p>
                 </Link>
               </li>
             );

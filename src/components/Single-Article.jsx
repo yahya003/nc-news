@@ -18,7 +18,8 @@ const SingleArticle =({user, setUser, error, setError}) => {
 
     useEffect(() => {
       setIsLoading(true)
-      fetchArticleByID(article_id).then((response) => {        
+      fetchArticleByID(article_id).then((response) => {  
+        console.log(response)      
         setArticle(response);
         setVote(response.votes)
         setIsLoading(false)
@@ -44,7 +45,7 @@ const SingleArticle =({user, setUser, error, setError}) => {
           <h4 className= "singleDate">Published - {article.created_at.substring(10,8)}-{article.created_at.substring(7,5)}-{article.created_at.substring(4,0)}   </h4>
           <p className="body">{article.body} </p>
           <div className="votes-comments">
-            <p className="comments"> Comments - {article.comment_count} </p>
+              <p className="comments"> 💬 {article.comment_count} </p>
             <p className="votes"> Votes:  {vote} </p>
             <Comment vote= {vote} setVote={setVote} article_id={article_id} comments={comments} setComments={setComments} user={user} setUser={setUser} error={error} setError={setError}/> 
           </div>
