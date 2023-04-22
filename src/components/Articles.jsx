@@ -59,7 +59,7 @@ const Articles = ({user, setUser, error, setError}) => {
       <div className="singleArticlePage">
         <div>
         <h3 className="log">{user.username}</h3>
-        <h2 className = "topLine">All Articles</h2>
+        <h2 className = "topLine">Articles</h2>
         <Logout/>
         </div>
   
