@@ -83,11 +83,12 @@
 
 .log {
   display: inline;
+  margin-right: 150px;
 }
 
 .topLine {
   display: inline;
-  margin-right: 26.5%;
+  margin-right: 27.5%;
   margin-left: 25%;
 }
 
