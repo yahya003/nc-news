@@ -16,7 +16,7 @@ Website allows users to:
 
 ## Backend Repo Link
 
-Link - https://github.com/yahya003/backend-project
+Link - https://github.com/yahya003/news-flash
 
 
 ## Requirements
