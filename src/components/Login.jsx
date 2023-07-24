@@ -12,10 +12,12 @@ const Login = ({ user, setUser, setError }) => {
     return (
         <section>
         <ul className="userLogins">
+
           {users.map((eachUser) => {
+            
             return (
               <Link to="/articles">
-             <li key={eachUser.username} onClick={() => {setUser(eachUser)}}>
+                <li key={eachUser.username} onClick={() => {setUser(eachUser)}}>
                   {setError(null)}
                   <img className ="posavatar" src={eachUser.avatar} alt= {eachUser.username + "'s avatar"} />
                   <p className="user">{eachUser.username}</p>

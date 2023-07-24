@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const Logout = ({setUser}) => {
@@ -5,14 +6,14 @@ const Logout = ({setUser}) => {
     <>
     
      <NavLink to ="/">
-     <button  
-          id="log-out"
+     <Button  
+          variant="danger"
 
           onClick={() => {
             setUser(null);
           }}>
           Log Out
-     </button>
+     </Button>
      </NavLink>
     </>
   )

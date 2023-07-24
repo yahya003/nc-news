@@ -3,6 +3,7 @@ import {fetchCommentsByArticle, patchVotesByArticleID} from "../api";
 import AddComment from "./AddComment";
 import DeleteComment from "./DeleteComment";
 import ErrorPage from "./ErrorPage";
+import { Button, Spinner } from "react-bootstrap";
 
 const Comments = ({article_id, comments, setComments, vote, setVote, user, setUser, error, setError}) => {
     const [disableButton, setDisableButton] = useState(false)
@@ -31,9 +32,15 @@ const Comments = ({article_id, comments, setComments, vote, setVote, user, setUs
     }
 
     if (error) return <ErrorPage error={error} setError={setError}/>
-    else if (isLoading) return <h2 className="loadingMessage">Loading...</h2>
+    else if (isLoading) {
+      return (
+        <Spinner style={{position: "absolute", top: "50%", left: "46%", width: "10em", height: "10em"}} animation="border" variant="primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      )
+    }
     else
-    return (
+    return ( 
       <>
         <div className="positionArrows">
           <button disabled = {disableButton} onClick={() => {
@@ -52,11 +59,8 @@ const Comments = ({article_id, comments, setComments, vote, setVote, user, setUs
           </button> 
         </div>
 
-         <div className="viewComments">
-            <button onClick={handleClick} className="commentButton">
-              View all comments
-            </button>
-         </div>
+         <Button onClick={handleClick} className="commentButton">View all comments</Button>
+         
 
          <ul className="commentList">
            <AddComment article_id={article_id} className="addComment" isListed={isListed} setIsListed={setIsListed} user={user} setUser={setUser} error={error} setError={setError}/>

@@ -6,6 +6,8 @@ import ErrorPage from "./ErrorPage";
 import Logout from "./Logout";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Spinner from 'react-bootstrap/Spinner';
+import { Col, Dropdown, Form, Row } from "react-bootstrap";
 
 
 
@@ -57,35 +59,50 @@ const Articles = ({user, setUser, error, setError}) => {
       return  navigate("/");
     }
 
-    else if (isLoading) return <h2 className= "loading">Loading...</h2>
+    else if (isLoading) {
+      return (
+        <Spinner style={{position: "absolute", top: "50%", left: "46%", width: "10em", height: "10em"}} animation="border" variant="primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      )
+    }
+    
     else
     return (
-      <div className="singleArticlePage">
-        <div>
-        <h3 className="log">{user.username}</h3>
-        <Logout/>
-        </div>
-  
-        <div className="filterArticles">
-            <form action="">
-         <label htmlFor="sort_by" className="sortBy">Sort By:</label>
-         <select id="sort_by" className="filterSortButton" onChange={handleChange}  >
-          <option disabled defaultValue="created_at">Select a filter</option>
-           <option  value="created_at">Date</option>
-           <option  value="article_id">Article ID</option>
-           <option  value="votes">Votes</option>
-           <option  value="comment_count">Comment Count</option>
-         </select>
+      <div>
 
-         <label htmlFor="order"  className="orderBy">Order: </label>
-         <select id="order" className="filterOrderButton"  onChange={handleChange}>
-           <option disabled defaultValue="DESC">Select Order</option>
-           <option value="DESC">Descending</option>
-           <option value="ASC">Ascending</option>
-         </select>
-         <button className="filterArticlesButton" onClick= {handleSubmit} value="Submit">Submit</button>
-         </form>
-        </div> 
+          <Row style={{justifyContent: "center"}} >
+            <Col style={{textAlign: "center"}}>
+             <h3>{user.username}</h3>
+            </Col>
+            <Col style={{textAlign: "center"}}><Logout/></Col>
+          </Row>
+          
+          <Row style={{marginLeft: "17%", marginTop: "3%"}}>
+            <Col style={{textAlign:"center"}}>
+             <Form.Select onChange={handleChange} >
+              <option hidden defaultValue="created_at">Filter articles by...</option>
+              <option  value="created_at">Date</option>
+              <option  value="article_id">Article ID</option>
+              <option  value="votes">Votes</option>
+              <option  value="comment_count">Comment Count</option>
+             </Form.Select>             
+            </Col>
+            
+            <Col style={{}}>
+             <Form.Select id="order" onChange={handleChange}>
+              <option hidden defaultValue="DESC">Order articles by...</option>
+              <option value="DESC">Descending</option>
+              <option value="ASC">Ascending</option>
+             </Form.Select>
+            </Col>
+
+            <Col style={{textAlign: "left"}}>
+              <Button onClick= {handleSubmit} value="Submit">Submit</Button>
+            </Col>
+          </Row>   
+
+
         <div className="background">
         <ul className="listItems">
           {articles.map((article) => {

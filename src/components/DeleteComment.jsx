@@ -1,6 +1,7 @@
 import { deleteCommentByID } from "../api"
 import { useState } from "react";
 import ErrorPage from "./ErrorPage";
+import { Button } from "react-bootstrap";
 
 const DeleteComment = ({user, isDeleted, setIsDeleted,eachComment, error, setError}) => {
     const [isDeleting, setIsDeleting] = useState(false);
@@ -33,7 +34,7 @@ const DeleteComment = ({user, isDeleted, setIsDeleted,eachComment, error, setErr
     else if (user.username === eachComment.author)
     return (
      <>
-     <button onClick={handleClick} className="deleteComment">Delete comment</button>
+     <Button onClick={handleClick} variant="danger">Delete comment</Button>
      </>
      )
     else {
