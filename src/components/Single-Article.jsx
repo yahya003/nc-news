@@ -21,7 +21,6 @@ const SingleArticle =({user, setUser, error, setError}) => {
     useEffect(() => {
       setIsLoading(true)
       fetchArticleByID(article_id).then((response) => {  
-        console.log(response)      
         setArticle(response);
         setVote(response.votes)
         setIsLoading(false)
@@ -37,7 +36,7 @@ const SingleArticle =({user, setUser, error, setError}) => {
     else if (user === null) {return navigate("/");}
     else if (isLoading) {
       return (
-        <Spinner style={{position: "absolute", top: "50%", left: "46%", width: "10em", height: "10em"}} animation="border" variant="primary" role="status">
+        <Spinner style={{position: "absolute", top: "30%", left: "46%", width: "10em", height: "10em"}} animation="border" variant="primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       )
