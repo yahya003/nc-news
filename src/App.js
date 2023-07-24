@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import SingleArticle from './components/Single-Article';
 import ErrorPage from './components/ErrorPage';
 import Logout from './components/Logout';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [user, setUser] = useState(null);
