@@ -49,7 +49,7 @@ const AddComment = ({article_id, isListed, setIsListed, user, setUser, error, se
             <label htmlFor="body">Comment</label>
             <br />
             <textarea name="body" id="body" required onChange={handleChange} cols="30" rows="10"></textarea>
-            <Button disabled= {disabled} value="Submit"  className="submitButton">Submit</Button>
+            <Button disabled= {disabled} value="Submit" variant="success" className="submitButton">Submit</Button>
          </form>
         </>
     )

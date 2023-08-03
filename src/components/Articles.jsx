@@ -61,7 +61,7 @@ const Articles = ({user, setUser, error, setError}) => {
 
     else if (isLoading) {
       return (
-        <Spinner style={{position: "absolute", top: "30%", left: "46%", width: "10em", height: "10em"}} animation="border" variant="primary" role="status">
+        <Spinner style={{marginTop:"10%", width: "10em", height: "10em"}} animation="border" variant="primary" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       )
@@ -98,7 +98,7 @@ const Articles = ({user, setUser, error, setError}) => {
             </Col>
 
             <Col style={{textAlign: "left"}}>
-              <Button onClick= {handleSubmit} value="Submit">Submit</Button>
+              <Button variant="success" onClick= {handleSubmit} value="Submit">Submit</Button>
             </Col>
           </Row>   
 
